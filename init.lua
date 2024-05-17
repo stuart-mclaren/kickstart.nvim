@@ -885,7 +885,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -911,26 +911,26 @@ require('lazy').setup({
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 local lspconfig = require 'lspconfig'
-lspconfig.gopls.setup{
-	on_attach = on_attach_vim,
-	capabilities = capabilities,
-	cmd = {"gopls", "serve"},
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-			linksInHover = false,
-			codelenses = {
-				generate = true,
-				gc_details = true,
-				regenerate_cgo = true,
-				tidy = true,
-				upgrade_depdendency = true,
-				vendor = true,
-			},
-			usePlaceholders = true,
-		},
-	},
+lspconfig.gopls.setup {
+  on_attach = on_attach_vim,
+  capabilities = capabilities,
+  cmd = { 'gopls', 'serve' },
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      linksInHover = false,
+      codelenses = {
+        generate = true,
+        gc_details = true,
+        regenerate_cgo = true,
+        tidy = true,
+        upgrade_depdendency = true,
+        vendor = true,
+      },
+      usePlaceholders = true,
+    },
+  },
 }
