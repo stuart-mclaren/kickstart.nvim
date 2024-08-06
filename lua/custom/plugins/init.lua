@@ -21,6 +21,9 @@ return {
     end
   },
   {
+    "rebelot/kanagawa.nvim"
+  },
+  {
     "nvim-neotest/nvim-nio"
   },
   {
