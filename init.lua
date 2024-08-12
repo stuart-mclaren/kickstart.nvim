@@ -787,6 +787,8 @@ require('lazy').setup({
       vim.cmd.colorscheme 'kanagawa-wave'
       vim.cmd [[highlight Normal ctermbg=black guibg=black]]
       vim.cmd [[set nolist]]
+      vim.cmd [[set colorcolumn=80]]
+      vim.cmd [[highlight ColorColumn ctermbg=red guibg=#ff0000]]
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
