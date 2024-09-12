@@ -789,6 +789,8 @@ require('lazy').setup({
       vim.cmd [[set nolist]]
       vim.cmd [[set colorcolumn=80]]
       vim.cmd [[highlight ColorColumn ctermbg=red guibg=#ff0000]]
+      vim.cmd [[highlight ExtraWhitespace ctermbg=red guibg=red]]
+      vim.cmd [[match ExtraWhitespace /\s\+$/]]
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
