@@ -923,6 +923,7 @@ lspconfig.gopls.setup {
   cmd = { 'gopls', 'serve' },
   settings = {
     gopls = {
+      buildFlags = { "-tags=experimental" },
       analyses = {
         unusedparams = true,
       },
