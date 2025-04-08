@@ -195,6 +195,10 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.api.nvim_create_user_command('TWS', function()                              
   vim.cmd [[%s/\s\+$//e]]                                                       
 end, {}) 
+-- mclaren
+vim.api.nvim_create_user_command('Bandw', function()
+  vim.cmd [[set termguicolors&]]
+end, {})
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
