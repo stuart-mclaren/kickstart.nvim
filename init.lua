@@ -190,16 +190,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-
--- mclaren
-vim.api.nvim_create_user_command('TWS', function()                              
-  vim.cmd [[%s/\s\+$//e]]                                                       
-end, {}) 
--- mclaren
-vim.api.nvim_create_user_command('Bandw', function()
-  vim.cmd [[set termguicolors&]]
-end, {})
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -213,6 +203,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- mclaren
+vim.api.nvim_create_user_command('TWS', function()
+  vim.cmd [[%s/\s\+$//e]]
+end, {})
+
+-- mclaren
+vim.api.nvim_create_user_command('Bandw', function()
+  vim.cmd [[set termguicolors&]]
+end, {})
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -797,7 +797,7 @@ require('lazy').setup({
       vim.cmd.colorscheme 'kanagawa-wave'
       vim.cmd [[highlight Normal ctermbg=black guibg=black]]
       vim.cmd [[set nolist]]
-      vim.cmd [[set colorcolumn=80]]
+      vim.cmd [[set colorcolumn=100]]
       vim.cmd [[highlight ColorColumn ctermbg=red guibg=#ff0000]]
       vim.cmd [[highlight ExtraWhitespace ctermbg=red guibg=red]]
       vim.cmd [[match ExtraWhitespace /\s\+$/]]
@@ -849,6 +849,8 @@ require('lazy').setup({
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    -- mclaren
+    enabled = false,
     build = ':TSUpdate',
     opts = {
       ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
@@ -933,7 +935,7 @@ lspconfig.gopls.setup {
   cmd = { 'gopls', 'serve' },
   settings = {
     gopls = {
-      buildFlags = { "-tags=experimental" },
+      buildFlags = { '-tags=experimental' },
       analyses = {
         unusedparams = true,
       },
